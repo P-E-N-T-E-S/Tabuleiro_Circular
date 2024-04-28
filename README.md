@@ -25,15 +25,35 @@
   /></a>
 </p>
 
-<p align="center">
-  <img
-    width="200"
-    display="inline-block"
-    src="https://www.blogs.unicamp.br/zero/wp-content/uploads/sites/187/2021/05/7round-2.png"
-  />
-</p>
+Este é um jogo de tabuleiro em C baseado em uma lista circular de casas especiais, projetado para desafiar o raciocínio lógico dos jogadores com enigmas e desafios. 
 
-## 👩‍💻 Membros de CCWebcam
+## 📎 Funcionalidades
+
+- **Lista Circular de Casas Especiais:** O tabuleiro é composto por casas especiais que oferecem desafios lógicos e enigmas para os jogadores resolverem.
+- **Gerador de Números Aleatórios:** Um dado virtual é simulado por meio de um gerador de números aleatórios para determinar o movimento dos jogadores no tabuleiro.
+- **Pontuação:** Os jogadores acumulam pontos ao acertarem os desafios lógicos presentes nas casas especiais do tabuleiro.
+
+## ♟️ Como Jogar
+
+1. **Setup Inicial:** O jogo começa com os jogadores posicionados na casa inicial do tabuleiro.
+2. **Rodada:** Em cada rodada, o jogador lança o "dado" virtual para determinar o número de casas que avançará.
+3. **Desafios Lógicos:** Ao parar em uma casa especial, o jogador enfrenta um desafio lógico ou enigma.
+4. **Pontuação:** Ao acertar o desafio, o jogador ganha pontos.
+5. **Objetivo Final:** O vencedor é aquele que acumular o maior número de pontos ao final das rodadas determinadas.
+
+## 🕹️ Como Executar
+
+1. **Pré-requisitos:** Certifique-se de ter um compilador C instalado em seu sistema.
+2. **Clone:** Clone este repositório em seu ambiente local.
+   ```bash
+   git clone https://github.com/seu-usuario/jogo-tabuleiro-c
+3. Compilação: Compile o código fonte.
+4.      gcc jogo.c -o jogo
+5. Execução: Execute o jogo compilado.
+6.     ./jogo
+
+
+## 👩‍💻 Membros
 
 <table>
   <tr>
@@ -54,10 +74,10 @@
       </a>
     </td>
       <td align="center">
-      <a href="https://github.com/mateusioliveira">
-        <img src="https://avatars.githubusercontent.com/mateusioliveira" width="100px;" alt="Foto de Mateus"/><br>
+      <a href="https://github.com/arthursuzuki">
+        <img src="https://avatars.githubusercontent.com/arthursuzuki" width="100px;" alt="Foto de Mateus"/><br>
         <sub>
-          <b>Mateus Roberto</b>
+          <b>Arthur Suzuki</b>
         </sub>
       </a>
     </td>
