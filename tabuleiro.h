@@ -4,6 +4,25 @@
 
 #ifndef TABULEIRO_TABULEIRO_H
 #define TABULEIRO_TABULEIRO_H
+typedef struct Casa{
+    Pergunta *pergunta;
+    int posicao;
+    int tipo;
+    int acao; //casas a avancar ou regredir
+    int ida;
+    struct Casa *next;
+    struct Casa *prev;
+}Casa;
+
+typedef struct Jogador{
+    char *nome;
+    int pontuacao;
+    Casa *posicao;
+}Jogador;
+
+void regredir(Jogador *jogador, int posicoes);
+void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida);
+void avancar(Jogador *jogador, int posicoes);
 
 #endif //TABULEIRO_TABULEIRO_H
 
