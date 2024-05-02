@@ -66,16 +66,16 @@ Este é um jogo de tabuleiro em C baseado em uma lista circular de casas especia
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/Luiz-Edu0202">
-        <img src="https://avatars.githubusercontent.com/Luiz-Edu0202" width="100px;" alt="Foto de Dustin"/><br>
+      <a href="https://github.com/Nerebo">
+        <img src="https://avatars.githubusercontent.com/Nerebo" width="100px;" alt="Foto de Nerebo"/><br>
         <sub>
-          <b>Luiz Eduardo Brayner</b>
+          <b>André Goes</b>
         </sub>
       </a>
     </td>
       <td align="center">
       <a href="https://github.com/arthursuzuki">
-        <img src="https://avatars.githubusercontent.com/arthursuzuki" width="100px;" alt="Foto de Mateus"/><br>
+        <img src="https://avatars.githubusercontent.com/arthursuzuki" width="100px;" alt="Foto de Suzuki"/><br>
         <sub>
           <b>Arthur Suzuki</b>
         </sub>
