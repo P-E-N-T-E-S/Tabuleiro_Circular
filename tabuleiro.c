@@ -8,8 +8,13 @@
 #define TRUE 1
 #define FALSE 0
 
-//se o tipo é TRUE, a casa é de pergunta
-//se a ida é um TRUE, é para avancar
+#define TAMANHOTABULEIRO 30
+
+//se o tipo é 0, a casa é de pergunta, se é 1 a casa é de avancar e se é 2 é a casa de ganhar pontos
+//se a ida é um 1, é para avancar, se for 0 é regredir
+//se a casa for de acao o acao é quantas casas ela vai avancar/regredir, se for de ganhar pontos é quantos pontos eles ganham
+
+
 
 
 
@@ -63,6 +68,23 @@ void regredir(Jogador *jogador, int posicoes){
             avancar(jogador, jogador->posicao->acao);
         }else{
             regredir(jogador, posicoes);
+        }
+    }
+}
+
+void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]){
+    int j=0, k=0;
+    int idaarray[] = {1, 1, 0, 0, 1, 1};
+    int acaoarray[] = {3, 2, 2, 3, 1, 2};
+    for(int i=0; i < TAMANHOTABULEIRO; i++){
+        if(i == 0){
+            incluir(head, tail, NULL, i, 2, 3, NULL);
+        }else if(i == 1 || i == 8 || i == 12 || i == 19 || i == 24 || i == 26){
+            incluir(head, tail, NULL, i, 1, acaoarray[j], idaarray[j]);
+            j++;
+        }else{
+            incluir(head, tail, perguntas[k], i, 0, NULL, NULL);
+            k++;
         }
     }
 }
