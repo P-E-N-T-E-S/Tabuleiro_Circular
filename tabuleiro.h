@@ -16,6 +16,7 @@ typedef struct Casa{
 
 typedef struct Jogador{
     char *nome;
+    int dadoposicao;
     int pontuacao;
     Casa *posicao;
 }Jogador;
@@ -23,6 +24,8 @@ typedef struct Jogador{
 void regredir(Jogador *jogador, int posicoes);
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida);
 void avancar(Jogador *jogador, int posicoes);
+void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
+int D6();
 
 #endif //TABULEIRO_TABULEIRO_H
 

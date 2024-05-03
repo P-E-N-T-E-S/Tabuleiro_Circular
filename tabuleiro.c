@@ -21,6 +21,8 @@
 void regredir(Jogador *jogador, int posicoes);
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida);
 void avancar(Jogador *jogador, int posicoes);
+void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
+int D6();
 
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida){
     Casa *nova = (Casa *)malloc(sizeof(Casa));
@@ -91,4 +93,8 @@ void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]){
 
 int pergunta(Jogador *jogador, Casa *casa){
     Pergunta pergunta = casa->pergunta;
+}
+
+int D6(){
+    return (rand() % 6 + 1);
 }
