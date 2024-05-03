@@ -41,7 +41,15 @@ int main(void) {
     scanf("%c", &enter);
     //rodando o jogo
     for(int i=0; i<rounds; i++){
-        
+        for(int j=0; j<qtdjogadores; j++){
+            printf("Vez do jogador: %s\n", jogadores[j]);
+            printf("Pressione Enter para rodar seu dado\n");
+            scanf("%c", &enter);
+            resultado = D6();
+            printf("Voce tirou %d!\n", resultado);
+            printf("Andando %d passos...\n");
+            avancar(&jogadores[i], resultado);
+        }
     }
     return 0;
 }

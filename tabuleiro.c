@@ -11,7 +11,7 @@
 #define TAMANHOTABULEIRO 30
 
 //se o tipo é 0, a casa é de pergunta, se é 1 a casa é de avancar e se é 2 é a casa de ganhar pontos
-//se a ida é um 1, é para avancar, se for 0 é regredir
+//se a ida é um TRUE, é para avancar, se for FALSE é regredir
 //se a casa for de acao o acao é quantas casas ela vai avancar/regredir, se for de ganhar pontos é quantos pontos eles ganham
 
 
@@ -22,6 +22,7 @@ void regredir(Jogador *jogador, int posicoes);
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida);
 void avancar(Jogador *jogador, int posicoes);
 void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
+void pousar(Jogador *jogador);
 int D6();
 
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida){
@@ -48,30 +49,14 @@ void avancar(Jogador *jogador, int posicoes){
     for(int i=0; i<posicoes; i++){
         jogador->posicao = jogador->posicao->next;
     }
-    if(jogador->posicao->tipo == TRUE){
-        jogador->pontuacao += pergunta(jogador, jogador->posicao);
-    }else{
-        if(jogador->posicao->ida == TRUE){
-            avancar(jogador, jogador->posicao->acao);
-        }else{
-            regredir(jogador, posicoes);
-        }
-    }
+    pousar(jogador);
 }
 
 void regredir(Jogador *jogador, int posicoes){
     for(int i=0; i<posicoes; i++){
         jogador->posicao = jogador->posicao->prev;
     }
-    if(jogador->posicao->tipo == TRUE){
-        jogador->pontuacao += pergunta(jogador, jogador->posicao);
-    }else{
-        if(jogador->posicao->ida == TRUE){
-            avancar(jogador, jogador->posicao->acao);
-        }else{
-            regredir(jogador, posicoes);
-        }
-    }
+    pousar(jogador);
 }
 
 void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]){
@@ -97,4 +82,18 @@ int pergunta(Jogador *jogador, Casa *casa){
 
 int D6(){
     return (rand() % 6 + 1);
+}
+
+void pousar(Jogador *jogador){
+    if(jogador->posicao->tipo == 0){
+        jogador->pontuacao += pergunta(jogador, jogador->posicao);
+    }else if(jogador->posicao->tipo == 1){
+        if(jogador->posicao->ida == 1){
+            avancar(jogador, jogador->posicao->acao);
+        }else{
+            regredir(jogador, jogador->posicao->acao);
+        }
+    }else{
+        jogador->pontuacao += jogador->posicao->acao;
+    }
 }
