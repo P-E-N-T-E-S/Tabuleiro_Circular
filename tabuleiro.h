@@ -4,6 +4,22 @@
 
 #ifndef TABULEIRO_TABULEIRO_H
 #define TABULEIRO_TABULEIRO_H
+
+#include <stdio.h>
+
+typedef struct Pergunta{
+
+    char questao[100];
+    char tipo[20];
+    char respostaA[20];
+    char respostaB[20];
+    char respostaC[20];
+    char respostaD[20];
+    char respostaCerta[1];
+    int ponto;
+
+}Pergunta;
+
 typedef struct Casa{
     Pergunta *pergunta;
     int posicao;
@@ -16,7 +32,6 @@ typedef struct Casa{
 
 typedef struct Jogador{
     char *nome;
-    int dadoposicao;
     int pontuacao;
     Casa *posicao;
 }Jogador;
@@ -25,8 +40,6 @@ typedef struct Jogador{
 void regredir(Jogador *jogador, int posicoes);
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida);
 void avancar(Jogador *jogador, int posicoes);
-void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
-int D6();
 
 //Funções da pontuação
 void perguntasInitF(Pergunta pergunta1[], FILE *arquivo, int qtd);
