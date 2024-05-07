@@ -6,9 +6,13 @@
 int main(void) {
     //setup
     Casa *head=NULL, *tail=NULL;
-    Pergunta perguntas[];
-    //funcao de ler perguntas
-    inicializarTabuleiro(head, tail, perguntas);
+    Pergunta *perguntas;
+    FILE *arquivo;
+    int qtdperguntas;
+    qtdperguntas = qtdPerguntas(arquivo);
+    fseek(arquivo, 0, 0);
+    perguntasInitF(perguntas, arquivo, qtdperguntas);
+    inicializarTabuleiro(&head, &tail, perguntas);
 
     //menu
     //funcao de iniciar jogo
@@ -43,12 +47,12 @@ int main(void) {
     //rodando o jogo
     for(int i=0; i<rounds; i++){
         for(int j=0; j<qtdjogadores; j++){
-            printf("Vez do jogador: %s\n", jogadores[j]);
+            printf("Vez do jogador: %s\n", jogadores[j].nome);
             printf("Pressione Enter para rodar seu dado\n");
             scanf("%c", &enter);
             resultado = D6();
             printf("Voce tirou %d!\n", resultado);
-            printf("Andando %d passos...\n");
+            printf("Andando %d passos...\n", resultado);
             avancar(&jogadores[i], resultado);
         }
     }

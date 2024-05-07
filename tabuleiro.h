@@ -30,6 +30,7 @@ void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo
 void avancar(Jogador *jogador, int posicoes);
 int D6();
 void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
+void esperar();
 
 #endif //TABULEIRO_TABULEIRO_H
 

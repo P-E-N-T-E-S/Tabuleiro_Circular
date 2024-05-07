@@ -7,13 +7,8 @@
 #include <stdio.h>
 #include <time.h>
 
-#define TRUE 1
-#define FALSE 0
-
 #define TAMANHOTABULEIRO 30
 #define ANSI_COLOR_RED     	"\x1b[31m" //cores em ANSI utilizadas
-#define ANSI_COLOR_GRAY    	"\e[0;37m"
-#define ANSI_COLOR_DARK_GRAY 	"\e[1;30m"
 #define ANSI_COLOR_GREEN	"\e[0;32m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
@@ -31,6 +26,7 @@ void avancar(Jogador *jogador, int posicoes);
 void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
 void pousar(Jogador *jogador);
 int D6();
+void esperar();
 
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida){
     Casa *nova = (Casa *)malloc(sizeof(Casa));
@@ -72,12 +68,12 @@ void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]){
     int acaoarray[] = {3, 2, 2, 3, 1, 2};
     for(int i=0; i < TAMANHOTABULEIRO; i++){
         if(i == 0){
-            incluir(head, tail, NULL, i, 2, 3, NULL);
+            incluir(head, tail, NULL, i, 2, 3, 0);
         }else if(i == 1 || i == 8 || i == 12 || i == 19 || i == 24 || i == 26){
             incluir(head, tail, NULL, i, 1, acaoarray[j], idaarray[j]);
             j++;
         }else{
-            incluir(head, tail, &perguntas[k], i, 0, NULL, NULL);
+            incluir(head, tail, &perguntas[k], i, 0, 0, 0);
             k++;
         }
     }
@@ -85,7 +81,7 @@ void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]){
 
 int pergunta(Jogador *jogador, Casa *casa){
     Pergunta *pergunta = casa->pergunta;
-    char tipo[10], aceitar, resposta;
+    char aceitar, resposta;
     switch (pergunta->ponto) {
         case 1:
             printf("voce caiu em uma casa com uma pergunta facil\n");
@@ -110,9 +106,16 @@ int pergunta(Jogador *jogador, Casa *casa){
         printf("%s\n", pergunta->respostaD);
         printf("Sua resposta: ");
         scanf("%c", &resposta);
-        if(resposta == pergunta->respostaCerta[0]){
-            printf(ANSI_COLOR_GREEN "Resposta correta!" ANSI_COLOR_RESET);
-            printf("\nVoce ganhou %d pontos!")
+        if(resposta == pergunta->respostaCerta[0] || resposta == pergunta->respostaCerta[0]-32){
+            printf(ANSI_COLOR_GREEN "Resposta correta!\n" ANSI_COLOR_RESET);
+            printf("\nVoce ganhou %d pontos!\n", pergunta->ponto);
+            jogador->pontuacao += pergunta->ponto;
+            esperar();
+        }else{
+            printf(ANSI_COLOR_RED "Resposta errada!\n" ANSI_COLOR_RESET);
+            printf("\nVoce perdeu %d pontos!\n", pergunta->ponto);
+            jogador->pontuacao -= pergunta->ponto;
+            esperar();
         }
     }
 
@@ -133,6 +136,14 @@ void pousar(Jogador *jogador){
             regredir(jogador, jogador->posicao->acao);
         }
     }else{
+        printf(ANSI_COLOR_GREEN "Voce ganhou 3 pontos por passar no inicio!" ANSI_COLOR_RESET);
         jogador->pontuacao += jogador->posicao->acao;
+        esperar();
     }
+}
+
+void esperar(){
+    char enter;
+    printf("Pressione qualquer tecla para continuar...");
+    scanf("%c", &enter);
 }
