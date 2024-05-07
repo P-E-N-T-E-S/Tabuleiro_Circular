@@ -2,13 +2,20 @@
 // Created by Evaldo Cunha Filho on 30/04/24.
 //
 #include "tabuleiro.h"
+#include "perguntas.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 #define TRUE 1
 #define FALSE 0
 
 #define TAMANHOTABULEIRO 30
+#define ANSI_COLOR_RED     	"\x1b[31m" //cores em ANSI utilizadas
+#define ANSI_COLOR_GRAY    	"\e[0;37m"
+#define ANSI_COLOR_DARK_GRAY 	"\e[1;30m"
+#define ANSI_COLOR_GREEN	"\e[0;32m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
 
 //se o tipo é 0, a casa é de pergunta, se é 1 a casa é de avancar e se é 2 é a casa de ganhar pontos
 //se a ida é um TRUE, é para avancar, se for FALSE é regredir
@@ -19,7 +26,7 @@
 
 
 void regredir(Jogador *jogador, int posicoes);
-void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida);
+void incluir(Casa **head, Casa **tail, Pergunta pergunta[], int posicao, int tipo, int acao, int ida);
 void avancar(Jogador *jogador, int posicoes);
 void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
 void pousar(Jogador *jogador);
@@ -70,17 +77,49 @@ void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]){
             incluir(head, tail, NULL, i, 1, acaoarray[j], idaarray[j]);
             j++;
         }else{
-            incluir(head, tail, perguntas[k], i, 0, NULL, NULL);
+            incluir(head, tail, &perguntas[k], i, 0, NULL, NULL);
             k++;
         }
     }
 }
 
 int pergunta(Jogador *jogador, Casa *casa){
-    Pergunta pergunta = casa->pergunta;
+    Pergunta *pergunta = casa->pergunta;
+    char tipo[10], aceitar, resposta;
+    switch (pergunta->ponto) {
+        case 1:
+            printf("voce caiu em uma casa com uma pergunta facil\n");
+            break;
+        case 2:
+            printf("voce caiu em uma casa com uma pergunta media\n");
+            break;
+        case 3:
+            printf("voce caiu em uma casa com uma pergunta dificil, alto risco e alta recompensa\n");
+            break;
+        default:
+            exit(1);
+    }
+    printf("voce deseja responder a pergunta?[y/n]\n");
+    scanf("%c", &aceitar);
+    system("clear||cls");
+    if(aceitar == 'y'){
+        printf("%s\n", pergunta->questao);
+        printf("%s\n", pergunta->respostaA);
+        printf("%s\n", pergunta->respostaB);
+        printf("%s\n", pergunta->respostaC);
+        printf("%s\n", pergunta->respostaD);
+        printf("Sua resposta: ");
+        scanf("%c", &resposta);
+        if(resposta == pergunta->respostaCerta[0]){
+            printf(ANSI_COLOR_GREEN "Resposta correta!" ANSI_COLOR_RESET);
+            printf("\nVoce ganhou %d pontos!")
+        }
+    }
+
 }
 
 int D6(){
+    srand((unsigned) time(NULL));
     return (rand() % 6 + 1);
 }
 

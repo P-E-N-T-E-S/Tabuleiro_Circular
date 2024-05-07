@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tabuleiro.h"
+#include "perguntas.h"
 
 int main(void) {
     //setup
