@@ -142,6 +142,9 @@ void pousar(Jogador *jogador){
     }
 }
 
+void definirPosicaoinicial(Jogador *jogador){
+    }
+
 void esperar(){
     char enter;
     printf("Pressione qualquer tecla para continuar...");
