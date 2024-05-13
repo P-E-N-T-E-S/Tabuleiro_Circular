@@ -58,3 +58,38 @@ int main(void) {
     }
     return 0;
 }
+
+
+void menuInicial(){
+    int escolha;
+        printf("Bem vindo ao TABULEIRO CIRCULAR");
+        printf("Escolha uma das opções:");
+        printf("1. Deseja iniciar o jogo?");
+        printf("Opção 2");
+        printf("Opção 3");
+        printf("Opção 4");
+        printf("5. sair!");
+        scanf("%i",&escolha);
+        if (escolha == 1){
+            //iniciar jogo
+        }
+        if (escolha == 2){
+            //opcao 2
+        }
+        if (escolha == 3){
+            //opcao 3
+        }
+        if (escolha == 4){
+            //opcao 4
+        }
+        if (escolha == 5){
+            exit(0);
+        }
+        else{
+            printf("Opção inválida, tente novamente!");
+        }
+
+
+
+
+}
