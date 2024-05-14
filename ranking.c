@@ -76,18 +76,25 @@ void iniciativaJogadores(Jogador *jogadores, int tamanho) { //selection sort
     }
 }
 
-void escVencedor(FILE arquivo){
+void escVencedor(FILE arquivo, char nome){
     char ranking[100];
     if (!existencia("ranking")){
-     //FILE *ranking = fopen("ranking.txt", "w");   
+         FILE *ranking = fopen("ranking.txt", "w");   
     }else{
-     FILE *ranking = fopen("ranking.txt", "r+");
+        FILE *ranking = fopen("ranking.txt", "a");
+        fprintf(ranking, "%s", nome);
+        printf("%s", ranking);
+    }
+    
+}
+
+void lerVencedor(FILE arquivo){
+    char ranking[100];
+         FILE *ranking = fopen("ranking.txt", "r");
      while (!feof(ranking)){
         fscanf(ranking, "%[^\n]%s", ranking);
         printf("%s", ranking);
      }
-    }
-    
 }
 
 void Regras(){
