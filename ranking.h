@@ -15,7 +15,7 @@ void cadastrarJogadores(Jogador *jogadores, Casa *head, int tamanho);
 void iniciativaJogadores(Jogador *jogadores, int tamanho);
 void classificarJogadores(Jogador *jogadores, int tamanho);
 int existencia(const char *fname);
-void Regras();
+void regras();
 void escVencedor(FILE arquivo);
 
 
