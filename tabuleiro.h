@@ -26,22 +26,15 @@ typedef struct Jogador{
     Casa *posicao;
     int posicaoInicial;
 }Jogador;
-
-// Funções do Tabuleiro
 void regredir(Jogador *jogador, int posicoes);
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida);
 void avancar(Jogador *jogador, int posicoes);
 int D6();
-
-void definirPosicaoInicial(Jogador *jogador);
-
-//Funções da pontuação
-void perguntasInitF(Pergunta pergunta1[], FILE *arquivo, int qtd);
-int qtdPerguntas(FILE *arquivo);
-void embaralharPerguntas(Pergunta pergunta[], int qtd);
+void finalizarJogo(Jogador *jogadores, int rounds, int qtdjogadores);
+void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta facil[], Pergunta media[], Pergunta dificil[]);
+void esperar();
 
 
 #endif //TABULEIRO_TABULEIRO_H
 
-void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
-void esperar();
+

@@ -34,34 +34,25 @@ void classificarJogadores(Jogador *jogadores, int tamanho) {
     }
 }
 
-void adicionarPontuacao(Jogador *jogadores, int tamanho, int id, int pontuacao) {
-    for (int i = 0; i < tamanho; i++) {
-        if (jogadores[i].id == id) {
-            jogadores[i].pontuacao += pontuacao;
-            return;
-        }
-    }
-}
-
 void imprimirJogadores(Jogador *jogadores, int tamanho) {
     printf("Jogadores:\n");
     for (int i = 0; i < tamanho; i++) {
-        printf("ID: %d | Nome: %s | Pontuacao: %d\n", jogadores[i].id, jogadores[i].nome, jogadores[i].pontuacao);
+        printf("Nome: %s | Pontuacao: %d\n", jogadores[i].nome, jogadores[i].pontuacao);
     }
 }
 
-void cadastrarJogadores(Jogador *jogadores, int tamanho) {
+void cadastrarJogadores(Jogador *jogadores, Casa *head, int tamanho) {
     for (int i = 0; i < tamanho; i++) {
         printf("Cadastro do Jogador %d:\n", i + 1);
 
-        // Aloca memória para o nome do jogador
         jogadores[i].nome = (char*)malloc(50 * sizeof(char));
 
         printf("Nome: ");
         scanf("%s", jogadores[i].nome);
-
-
         jogadores[i].id = i;
+        jogadores[i].pontuacao = 0;
+        jogadores[i].dadoposicao = 0;
+        jogadores[i].posicao = head;
     }
 }
 

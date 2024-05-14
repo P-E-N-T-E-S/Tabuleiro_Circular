@@ -9,10 +9,9 @@
 #include "perguntas.h"
 #include "tabuleiro.h"
 
-void troca(Jogador *a,Jogador *b);
-void adicionarPontuacao(Jogador *jogadores, int tamanho, int id, int pontuacao);
+void troca(Jogador *a,Jogador *b);;
 void imprimirJogadores(Jogador *jogadores, int tamanho);
-void cadastrarJogadores(Jogador *jogadores, int tamanho);
+void cadastrarJogadores(Jogador *jogadores, Casa *head, int tamanho);
 void iniciativaJogadores(Jogador *jogadores, int tamanho);
 void classificarJogadores(Jogador *jogadores, int tamanho);
 

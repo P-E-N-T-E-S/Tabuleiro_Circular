@@ -29,7 +29,7 @@ int main(void) {
             printf("Quantos jogadores vão disputar essa partida?\n");
             scanf("%d", &qtdjogadores);
             Jogador jogadores[qtdjogadores];
-            cadastrarJogadores(jogadores, qtdjogadores);
+            cadastrarJogadores(jogadores, head, qtdjogadores);
             printf("Quantos rounds vão ser jogados?\nCada round corresponde a um turno de cada jogador\n");
             scanf("%d", &rounds);
             //execucao do jogo
@@ -60,7 +60,8 @@ int main(void) {
                     avancar(&jogadores[i], resultado);
                 }
             }
-            finalizarJogo();
+            finalizarJogo(jogadores, rounds, qtdjogadores);
+            break;
         }
         if (escolha == 2){
             //opcao 2

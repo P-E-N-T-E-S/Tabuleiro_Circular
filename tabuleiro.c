@@ -63,10 +63,11 @@ void regredir(Jogador *jogador, int posicoes){
     pousar(jogador);
 }
 
-void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]){
-    int j=0, k=0;
+void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta facil[], Pergunta media[], Pergunta dificil[]){
+    int j=0, k=0, f=0,m=0,d=0;
     int idaarray[] = {1, 1, 0, 0, 1, 1};
     int acaoarray[] = {3, 2, 2, 3, 1, 2};
+    int pergunta[] = {3,1,2,3,1,2,3,2,2,3,2,1,1,3,3,2,1,2,3,2,1,1};
     for(int i=0; i < TAMANHOTABULEIRO; i++){
         if(i == 0){
             incluir(head, tail, NULL, i, 2, 3, 0);
@@ -74,7 +75,20 @@ void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]){
             incluir(head, tail, NULL, i, 1, acaoarray[j], idaarray[j]);
             j++;
         }else{
-            incluir(head, tail, &perguntas[k], i, 0, 0, 0);
+            switch (pergunta[k]) {
+                case 1:
+                    incluir(head, tail, &facil[f], i, 0, 1, 0);
+                    f++;
+                    break;
+                case 2:
+                    incluir(head, tail, &media[m], i, 0, 1, 0);
+                    m++;
+                    break;
+                case 3:
+                    incluir(head, tail, &dificil[m], i, 0, 1, 0);
+                    d++;
+                    break;
+            }
             k++;
         }
     }
@@ -86,12 +100,15 @@ int pergunta(Jogador *jogador, Casa *casa){
     switch (pergunta->ponto) {
         case 1:
             printf("voce caiu em uma casa com uma pergunta facil\n");
+            printf("pergunta do tipo: %s\n", pergunta->tipo);
             break;
         case 2:
             printf("voce caiu em uma casa com uma pergunta media\n");
+            printf("pergunta do tipo: %s\n", pergunta->tipo);
             break;
         case 3:
             printf("voce caiu em uma casa com uma pergunta dificil, alto risco e alta recompensa\n");
+            printf("pergunta do tipo: %s\n", pergunta->tipo);
             break;
         default:
             exit(1);
@@ -152,9 +169,10 @@ void esperar(){
 void finalizarJogo(Jogador *jogadores, int rounds, int qtdjogadores){
     classificarJogadores(jogadores, qtdjogadores);
     printf(ANSI_COLOR_GREEN "------Fim do jogo------\n" ANSI_COLOR_RESET);
-    printf("O grande vencedor e...");
-    printf("Parabens %s, voce dominou o Tabuleiro circular com %d pontos", jogadores[0].nome, jogadores[0].pontuacao);
-
-
-
+    printf("O grande vencedor e...\n");
+    printf("Parabens %s, voce dominou o Tabuleiro circular com %d pontos\n", jogadores[0].nome, jogadores[0].pontuacao);
+    printf("Ranking dos jogadores:\n");
+    imprimirJogadores(jogadores, qtdjogadores);
+    printf("Pressione Enter para sair...");
+    esperar();
 }
