@@ -18,7 +18,7 @@ typedef struct Pergunta{
 
 }Pergunta;
 
-void perguntasInitF(Pergunta pergunta1[], FILE *arquivo, int qtd);
+void perguntasInit(Pergunta *pergunta1, FILE *arquivo, int qtd);
 int qtdPerguntas(FILE *dados);
 void embaralharPerguntas(Pergunta pergunta[], int qtd);
 

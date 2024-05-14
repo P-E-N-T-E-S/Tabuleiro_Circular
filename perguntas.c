@@ -11,26 +11,17 @@
 #define TRUE 1
 #define FALSE 0
 
-
-void perguntasInitF(Pergunta pergunta1[], FILE *arquivo, int qtd){
-    for (int i = 0; i < qtd; ++i) {
-            fscanf(arquivo, "%[^\n]%s\n\n%s\n%s\n%s\n%s\n%s\n%d\n",pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, &pergunta1[i].ponto);
-
-    }
+void perguntasInit(Pergunta pergunta1[], FILE *arquivo, int qtd){
 
     for (int i = 0; i < qtd; ++i) {
-        printf( "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%d\n", pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, pergunta1[i].ponto);
+        fscanf(arquivo, "%[^\n]%s\n\n%s\n%s\n%s\n%s\n%s\n%d\n",pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, &pergunta1[i].ponto);
     }
 
     for (int i = 0; i < qtd; ++i) {
         embaralharPerguntas(pergunta1, qtd);
     }
 
-    for (int i = 0; i < qtd; ++i) {
-        printf( "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%d\n", pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, pergunta1[i].ponto);
-    }
 }
-
 int qtdPerguntas(FILE *dados) {
     int linhas = 0;
     char ch;
