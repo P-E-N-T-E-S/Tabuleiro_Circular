@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tabuleiro.h"
+#include "unistd.h"
 
 
 //Jogador *jogadores = (Jogador*)malloc(tamanho * sizeof(Jogador));
@@ -72,5 +73,36 @@ void iniciativaJogadores(Jogador *jogadores, int tamanho) { //selection sort
         if (max_idx != i) {
             troca(&jogadores[max_idx], &jogadores[i]);
         }
+    }
+}
+
+void escVencedor(FILE arquivo){
+    char ranking[100];
+    if (!existencia("ranking")){
+     //FILE *ranking = fopen("ranking.txt", "w");   
+    }else{
+     FILE *ranking = fopen("ranking.txt", "r+");
+     while (!feof(ranking)){
+        fscanf(ranking, "%[^\n]%s", ranking);
+        printf("%s", ranking);
+     }
+    }
+    
+}
+
+void Regras(){
+    char regra[100];
+     FILE *arquivo = fopen("regras.txt", "r");
+     while (!feof(arquivo)){
+        fscanf(arquivo, "%[^\n]%s", regra);
+        printf("%s", regra);
+     }
+    }
+
+int existencia(const char *fname){
+    if(access(fname, F_OK)){
+    return 0;
+    }else{
+        return 1;
     }
 }

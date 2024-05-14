@@ -14,5 +14,9 @@ void imprimirJogadores(Jogador *jogadores, int tamanho);
 void cadastrarJogadores(Jogador *jogadores, Casa *head, int tamanho);
 void iniciativaJogadores(Jogador *jogadores, int tamanho);
 void classificarJogadores(Jogador *jogadores, int tamanho);
+int existencia(const char *fname);
+void Regras();
+void escVencedor(FILE arquivo);
+
 
 #endif //TABULEIRO_RANKING_H
