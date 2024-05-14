@@ -20,6 +20,7 @@ typedef struct Casa{
 
 typedef struct Jogador{
     char *nome;
+    int dadoposicao;
     int pontuacao;
     int id;
     Casa *posicao;

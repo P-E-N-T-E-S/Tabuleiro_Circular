@@ -3,6 +3,7 @@
 //
 #include "tabuleiro.h"
 #include "perguntas.h"
+#include "ranking.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -142,11 +143,18 @@ void pousar(Jogador *jogador){
     }
 }
 
-void definirPosicaoinicial(Jogador *jogador){
-    }
-
 void esperar(){
     char enter;
     printf("Pressione qualquer tecla para continuar...");
     scanf("%c", &enter);
+}
+
+void finalizarJogo(Jogador *jogadores, int rounds, int qtdjogadores){
+    classificarJogadores(jogadores, qtdjogadores);
+    printf(ANSI_COLOR_GREEN "------Fim do jogo------\n" ANSI_COLOR_RESET);
+    printf("O grande vencedor e...");
+    printf("Parabens %s, voce dominou o Tabuleiro circular com %d pontos", jogadores[0].nome, jogadores[0].pontuacao);
+
+
+
 }

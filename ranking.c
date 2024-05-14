@@ -1,14 +1,18 @@
+//
+// Created by Evaldo Cunha Filho on 14/05/24.
+//
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "tabuleiro.h"
 
 
 //Jogador *jogadores = (Jogador*)malloc(tamanho * sizeof(Jogador));
 
 void troca(Jogador *a,Jogador *b){
-  Jogador temp = *a;
-  *a = *b;
-  *b = temp;
+    Jogador temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 
@@ -18,10 +22,15 @@ void classificarJogadores(Jogador *jogadores, int tamanho) {
         for (int j = i + 1; j < tamanho; j++) {
             if (jogadores[j].pontuacao > jogadores[max_idx].pontuacao) {
                 max_idx = j;
+            }else if(jogadores[j].dadoposicao == jogadores[max_idx].dadoposicao) {
+                if (strcmp(jogadores[j].nome, jogadores[max_idx].nome) < 0) {
+                    max_idx = j;
+                }
             }
         }
-        
-        troca(&jogadores[max_idx], &jogadores[i]);
+        if(max_idx != i){
+            troca(&jogadores[max_idx], &jogadores[i]);
+        }
     }
 }
 
@@ -53,5 +62,24 @@ void cadastrarJogadores(Jogador *jogadores, int tamanho) {
 
 
         jogadores[i].id = i;
+    }
+}
+
+void iniciativaJogadores(Jogador *jogadores, int tamanho) { //selection sort
+    for (int i = 0; i < tamanho - 1; i++) {
+        int max_idx = i;
+        for (int j = i + 1; j < tamanho; j++) {
+            if (jogadores[j].dadoposicao > jogadores[max_idx].dadoposicao) {
+                max_idx = j;
+            } else if (jogadores[j].dadoposicao == jogadores[max_idx].dadoposicao) {
+                if (strcmp(jogadores[j].nome, jogadores[max_idx].nome) < 0) {
+                    max_idx = j;
+                }
+            }
+        }
+
+        if (max_idx != i) {
+            troca(&jogadores[max_idx], &jogadores[i]);
+        }
     }
 }
