@@ -48,7 +48,7 @@ Este é um jogo de tabuleiro em C baseado em uma lista circular de casas especia
    ```bash
    git clone https://github.com/seu-usuario/jogo-tabuleiro-c
 3. Compilação: Compile o código fonte.
-4.      gcc jogo.c -o jogo
+4.      gcc main.c perguntas.c ranking.c tabuleiro.c -o game
 5. Execução: Execute o jogo compilado.
 6.     ./jogo
 
