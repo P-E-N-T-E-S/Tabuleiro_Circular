@@ -18,8 +18,8 @@ typedef struct Pergunta{
 
 }Pergunta;
 
-void perguntasInit(Pergunta *pergunta1, FILE *arquivo, int qtd);
+Pergunta * perguntasInitF(Pergunta *pergunta1, int qtd);
 int qtdPerguntas(FILE *dados);
-void embaralharPerguntas(Pergunta pergunta[], int qtd);
+void embaralharPerguntas(Pergunta pergunta1[], int qtd);
 
 #endif //TABULEIRO_PERGUNTAS_H
