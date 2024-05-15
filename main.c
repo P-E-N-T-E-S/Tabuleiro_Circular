@@ -7,14 +7,14 @@
 int main(void) {
     //setup
     Casa *head=NULL, *tail=NULL;
-    Pergunta *perguntas;
-    FILE *arqperguntas;
+    Pergunta *facil = NULL, *medio = NULL, *dificil = NULL;
     int qtdperguntas;
-    arqperguntas = fopen("perguntas.txt", "w");
-    qtdperguntas = qtdPerguntas(arqperguntas);
-    fseek(arqperguntas, 0, 0);
-    perguntasInitF(perguntas, arqperguntas, qtdperguntas);
-    inicializarTabuleiro(&head, &tail, );
+    perguntasInitF(facil);
+    perguntasInitM(medio);
+    perguntasInitD(dificil);
+
+    inicializarTabuleiro(&head, &tail, facil, medio, dificil);
+
     int escolha;
     while(1){
         printf("Bem vindo ao TABULEIRO CIRCULAR");
@@ -34,25 +34,24 @@ int main(void) {
             printf("Quantos rounds vão ser jogados?\nCada round corresponde a um turno de cada jogador\n");
             scanf("%d", &rounds);
             //execucao do jogo
-            printf("Agora vamos ver a ordem dos jogadores pelo dado");
+            printf("Agora vamos ver a ordem dos jogadores pelo dado\n");
             for(int i=0; i<qtdjogadores; i++){
                 printf("Jogador: %s, pressione Enter para rodar seu dado...\n", jogadores[i].nome);
                 scanf("%c", &enter);
                 resultado = D6();
                 jogadores[i].dadoposicao = resultado;
-                printf("O resultado do seu dado foi: %d", resultado);
+                printf("O resultado do seu dado foi: %d\n", resultado);
             }
 
             iniciativaJogadores(jogadores, qtdjogadores);
 
             printf("A ordem dos jogadores ficou:\n");
             imprimirJogadores(jogadores, qtdjogadores);
-            printf("Jogador %s, pressione Enter para iniciar o jogo", jogadores[0].nome);
-            scanf("%c", &enter);
 
             for(int i=0; i<rounds; i++){
                 for(int j=0; j<qtdjogadores; j++){
                     printf("Vez do jogador: %s\n", jogadores[j].nome);
+                    esperar();
                     printf("Pressione Enter para rodar seu dado\n");
                     scanf("%c", &enter);
                     resultado = D6();
