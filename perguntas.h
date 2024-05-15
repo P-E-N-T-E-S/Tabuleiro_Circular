@@ -18,10 +18,10 @@ typedef struct Pergunta{
 
 }Pergunta;
 
-Pergunta * perguntasInitF(Pergunta *pergunta1, int qtd);
+Pergunta *perguntasInitF(Pergunta *pergunta1, int qtd);
 Pergunta *perguntasInitM(Pergunta *pergunta1, int qtd);
 Pergunta *perguntasInitD(Pergunta *pergunta1, int qtd);
-int qtdPerguntas(FILE *dados);
 void embaralharPerguntas(Pergunta pergunta1[], int qtd);
+int qtdPerguntas(FILE *dados);
 
 #endif //TABULEIRO_PERGUNTAS_H

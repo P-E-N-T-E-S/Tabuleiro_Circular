@@ -8,22 +8,31 @@ int main(void) {
     //setup
     Casa *head=NULL, *tail=NULL;
     Pergunta *facil = NULL, *medio = NULL, *dificil = NULL;
-    int qtdperguntas;
-    perguntasInitF(facil);
-    perguntasInitM(medio);
-    perguntasInitD(dificil);
+    int qtdfacil = 0, qtdmedia = 0, qtddificil = 0;
+    char dump;
+    FILE *facilarq = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/facil.txt", "r");
+    FILE *mediaarq = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/medio.txt", "r");
+    FILE *dificilarq = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/dificil.txt", "r");
+    qtdfacil = qtdPerguntas(facilarq);
+    qtdmedia = qtdPerguntas(mediaarq);
+    qtddificil = qtdPerguntas(dificilarq);
+
+    facil = perguntasInitF(facil, qtdfacil);
+    medio = perguntasInitM(medio, qtdfacil);
+    dificil = perguntasInitD(dificil, qtdfacil);
 
     inicializarTabuleiro(&head, &tail, facil, medio, dificil);
 
     int escolha;
     while(1){
-        printf("Bem vindo ao TABULEIRO CIRCULAR");
-        printf("Escolha uma das opções:");
-        printf("1) Jogar uma partida");
-        printf("2) Regras");
-        printf("3) Ver vencedores");
-        printf("4) sair!");
+        printf("Bem vindo ao TABULEIRO CIRCULAR\n");
+        printf("Escolha uma das opções:\n");
+        printf("1) Jogar uma partida\n");
+        printf("2) Regras\n");
+        printf("3) Ver vencedores\n");
+        printf("4) sair!\n");
         scanf("%i",&escolha);
+        system("clear");
         if (escolha == 1){
             int qtdjogadores, rounds, resultado;
             char enter;
@@ -35,6 +44,7 @@ int main(void) {
             scanf("%d", &rounds);
             //execucao do jogo
             printf("Agora vamos ver a ordem dos jogadores pelo dado\n");
+            scanf("%c", &enter);
             for(int i=0; i<qtdjogadores; i++){
                 printf("Jogador: %s, pressione Enter para rodar seu dado...\n", jogadores[i].nome);
                 scanf("%c", &enter);
@@ -65,15 +75,17 @@ int main(void) {
         }
         if (escolha == 2){
             regras();
+            scanf("%c", &dump);
+            printf("\n");
         }
         if (escolha == 3){
-            //opcao 3
+            lerVencedor();
         }
         if (escolha == 4){
             exit(0);
         }
         else{
-            printf("Opção inválida, tente novamente!");
+            printf("Opção inválida, tente novamente!\n");
         }
     }
     return 0;

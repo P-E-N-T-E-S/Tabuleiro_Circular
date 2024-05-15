@@ -24,7 +24,7 @@
 void regredir(Jogador *jogador, int posicoes);
 void incluir(Casa **head, Casa **tail, Pergunta pergunta[], int posicao, int tipo, int acao, int ida);
 void avancar(Jogador *jogador, int posicoes);
-void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta perguntas[]);
+void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta facil[], Pergunta media[], Pergunta dificil[]);
 void pousar(Jogador *jogador);
 int D6();
 void esperar();
@@ -94,9 +94,9 @@ void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta facil[], Pergunta m
     }
 }
 
-int pergunta(Jogador *jogador, Casa *casa){
+void pergunta(Jogador *jogador, Casa *casa){
     Pergunta *pergunta = casa->pergunta;
-    char aceitar, resposta;
+    char aceitar, resposta, espera;
     switch (pergunta->ponto) {
         case 1:
             printf("voce caiu em uma casa com uma pergunta facil\n");
@@ -115,13 +115,9 @@ int pergunta(Jogador *jogador, Casa *casa){
     }
     printf("voce deseja responder a pergunta?[y/n]\n");
     scanf("%c", &aceitar);
-    system("clear||cls");
+    scanf("%c", &espera);
     if(aceitar == 'y'){
-        printf("%s\n", pergunta->questao);
-        printf("%s\n", pergunta->respostaA);
-        printf("%s\n", pergunta->respostaB);
-        printf("%s\n", pergunta->respostaC);
-        printf("%s\n", pergunta->respostaD);
+        printf("%s\n%s\n%s\n%s\n%s\n", pergunta->questao, pergunta->respostaA, pergunta->respostaB, pergunta->respostaC, pergunta->respostaD);
         printf("Sua resposta: ");
         scanf("%c", &resposta);
         if(resposta == pergunta->respostaCerta[0] || resposta == pergunta->respostaCerta[0]-32){
@@ -146,11 +142,15 @@ int D6(){
 
 void pousar(Jogador *jogador){
     if(jogador->posicao->tipo == 0){
-        jogador->pontuacao += pergunta(jogador, jogador->posicao);
+        pergunta(jogador, jogador->posicao);
     }else if(jogador->posicao->tipo == 1){
         if(jogador->posicao->ida == 1){
+            printf(ANSI_COLOR_GREEN "Voce caiu em uma casa de avanco, e vai avancar %d passos!\n" ANSI_COLOR_RESET, jogador->posicao->acao);
+            printf("Andando %d passos...\n", jogador->posicao->acao);
             avancar(jogador, jogador->posicao->acao);
         }else{
+            printf(ANSI_COLOR_RED "Voce caiu em uma casa de regresso, e vai voltar %d passos!\n" ANSI_COLOR_RESET, jogador->posicao->acao);
+            printf("Voltando %d passos...\n", jogador->posicao->acao);
             regredir(jogador, jogador->posicao->acao);
         }
     }else{
@@ -173,6 +173,7 @@ void finalizarJogo(Jogador *jogadores, int rounds, int qtdjogadores){
     printf("Parabens %s, voce dominou o Tabuleiro circular com %d pontos\n", jogadores[0].nome, jogadores[0].pontuacao);
     printf("Ranking dos jogadores:\n");
     imprimirJogadores(jogadores, qtdjogadores);
+    escVencedor(jogadores[0].nome);
     printf("Pressione Enter para sair...");
     esperar();
 }

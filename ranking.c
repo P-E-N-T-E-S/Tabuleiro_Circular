@@ -13,7 +13,7 @@ void regras();
 int existencia(const char *fname);
 void troca(Jogador *a,Jogador *b);
 void classificarJogadores(Jogador *jogadores, int tamanho);
-void escVencedor(FILE arquivo);
+void escVencedor(char nome[30]);
 
 void troca(Jogador *a,Jogador *b){
     Jogador temp = *a;
@@ -89,7 +89,6 @@ void escVencedor(char nome[30]){
     }else{
         FILE *ranking = fopen("ranking.txt", "a");
         fprintf(ranking, "%s", nome);
-        printf("%s", ranking);
     }
 
 }
@@ -105,7 +104,7 @@ void lerVencedor(){
 
 void regras(){
     char regra[100];
-    FILE *arquivo = fopen("regras.txt", "r");
+    FILE *arquivo = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/regras.txt", "r");
     while (fgets(regra, sizeof(regra), arquivo)) {
         printf("%s", regra); // Process the line as needed
     }
