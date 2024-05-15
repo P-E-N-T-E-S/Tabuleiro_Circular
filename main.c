@@ -8,12 +8,13 @@ int main(void) {
     //setup
     Casa *head=NULL, *tail=NULL;
     Pergunta *perguntas;
-    FILE *arquivo;
+    FILE *arqperguntas;
     int qtdperguntas;
-    qtdperguntas = qtdPerguntas(arquivo);
-    fseek(arquivo, 0, 0);
-    perguntasInitF(perguntas, arquivo, qtdperguntas);
-    inicializarTabuleiro(&head, &tail, perguntas);
+    arqperguntas = fopen("perguntas.txt", "w");
+    qtdperguntas = qtdPerguntas(arqperguntas);
+    fseek(arqperguntas, 0, 0);
+    perguntasInitF(perguntas, arqperguntas, qtdperguntas);
+    inicializarTabuleiro(&head, &tail, );
     int escolha;
     while(1){
         printf("Bem vindo ao TABULEIRO CIRCULAR");
@@ -64,7 +65,7 @@ int main(void) {
             break;
         }
         if (escolha == 2){
-            //opcao 2
+            regras();
         }
         if (escolha == 3){
             //opcao 3

@@ -9,6 +9,11 @@
 
 
 //Jogador *jogadores = (Jogador*)malloc(tamanho * sizeof(Jogador));
+void regras();
+int existencia(const char *fname);
+void troca(Jogador *a,Jogador *b);
+void classificarJogadores(Jogador *jogadores, int tamanho);
+void escVencedor(FILE arquivo);
 
 void troca(Jogador *a,Jogador *b){
     Jogador temp = *a;
@@ -97,7 +102,7 @@ void lerVencedor(FILE arquivo){
      }
 }
 
-void Regras(){
+void regras(){
     char regra[100];
      FILE *arquivo = fopen("regras.txt", "r");
      while (!feof(arquivo)){
