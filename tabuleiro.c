@@ -46,6 +46,7 @@ void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo
         nova->prev = (*tail);
         nova->next = (*head);
         (*tail) = nova;
+        (*head)->prev = nova;
     }
 }
 
@@ -168,7 +169,7 @@ void esperar(){
 
 void finalizarJogo(Jogador *jogadores, int rounds, int qtdjogadores){
     classificarJogadores(jogadores, qtdjogadores);
-    printf(ANSI_COLOR_GREEN "------Fim do jogo------\n" ANSI_COLOR_RESET);
+    printf(ANSI_COLOR_GREEN "\n------Fim do jogo------\n" ANSI_COLOR_RESET);
     printf("O grande vencedor e...\n");
     printf("Parabens %s, voce dominou o Tabuleiro circular com %d pontos\n", jogadores[0].nome, jogadores[0].pontuacao);
     printf("Ranking dos jogadores:\n");

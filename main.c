@@ -67,7 +67,7 @@ int main(void) {
                     resultado = D6();
                     printf("Voce tirou %d!\n", resultado);
                     printf("Andando %d passos...\n", resultado);
-                    avancar(&jogadores[i], resultado);
+                    avancar(&jogadores[j], resultado);
                 }
             }
             finalizarJogo(jogadores, rounds, qtdjogadores);
