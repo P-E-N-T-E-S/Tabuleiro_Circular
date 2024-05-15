@@ -81,39 +81,40 @@ void iniciativaJogadores(Jogador *jogadores, int tamanho) { //selection sort
     }
 }
 
-void escVencedor(FILE arquivo, char nome){
+void escVencedor(char nome[30]){
     char ranking[100];
     if (!existencia("ranking")){
-         FILE *ranking = fopen("ranking.txt", "w");   
+        FILE *ranking = fopen("ranking.txt", "w");
+        fprintf(ranking, "%s", nome);
     }else{
         FILE *ranking = fopen("ranking.txt", "a");
         fprintf(ranking, "%s", nome);
         printf("%s", ranking);
     }
-    
+
 }
 
-void lerVencedor(FILE arquivo){
-    char ranking[100];
-         FILE *ranking = fopen("ranking.txt", "r");
-     while (!feof(ranking)){
-        fscanf(ranking, "%[^\n]%s", ranking);
-        printf("%s", ranking);
-     }
+void lerVencedor(){
+    char rankingc[100];
+    FILE *ranking = fopen("ranking.txt", "r");
+    while (fgets(rankingc, sizeof(rankingc), ranking)) {
+        printf("%s", rankingc); // Process the line as needed
+    }
+    fclose(ranking);
 }
 
 void regras(){
     char regra[100];
-     FILE *arquivo = fopen("regras.txt", "r");
-     while (!feof(arquivo)){
-        fscanf(arquivo, "%[^\n]%s", regra);
-        printf("%s", regra);
-     }
+    FILE *arquivo = fopen("regras.txt", "r");
+    while (fgets(regra, sizeof(regra), arquivo)) {
+        printf("%s", regra); // Process the line as needed
     }
+    fclose(arquivo);
+}
 
 int existencia(const char *fname){
     if(access(fname, F_OK)){
-    return 0;
+        return 0;
     }else{
         return 1;
     }

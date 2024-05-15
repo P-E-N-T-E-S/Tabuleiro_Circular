@@ -11,9 +11,55 @@
 #define TRUE 1
 #define FALSE 0
 
-Pergunta *perguntasInitF(Pergunta pergunta1[], int qtd){
+Pergunta *perguntasInitF(Pergunta *pergunta1, int qtd){
     pergunta1 = (Pergunta *)malloc(qtd * sizeof(Pergunta));
     FILE *facila = fopen("facil.txt", "r");
+
+    for (int i = 0; i < qtd; ++i) {
+        fscanf(facila, "%[^\n]%s\n\n%s\n%s\n%s\n%s\n%s\n%d\n",pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, &pergunta1[i].ponto);
+    }
+
+    fclose(facila);
+
+    srand((unsigned)time(NULL));
+    for (int i = qtd - 1; i > 0; --i) {
+        int indice = rand() % i;
+        if (indice != i) {
+            Pergunta temp = pergunta1[i];
+            pergunta1[i] = pergunta1[indice];
+            pergunta1[indice] = temp;
+        }
+    }
+    return pergunta1;
+}
+
+
+Pergunta *perguntasInitM(Pergunta *pergunta1, int qtd){
+    pergunta1 = (Pergunta *)malloc(qtd * sizeof(Pergunta));
+    FILE *facila = fopen("medio.txt", "r");
+
+    for (int i = 0; i < qtd; ++i) {
+        fscanf(facila, "%[^\n]%s\n\n%s\n%s\n%s\n%s\n%s\n%d\n",pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, &pergunta1[i].ponto);
+    }
+
+    fclose(facila);
+
+    srand((unsigned)time(NULL));
+    for (int i = qtd - 1; i > 0; --i) {
+        int indice = rand() % i;
+        if (indice != i) {
+            Pergunta temp = pergunta1[i];
+            pergunta1[i] = pergunta1[indice];
+            pergunta1[indice] = temp;
+        }
+    }
+    return pergunta1;
+}
+
+
+Pergunta *perguntasInitD(Pergunta *pergunta1, int qtd){
+    pergunta1 = (Pergunta *)malloc(qtd * sizeof(Pergunta));
+    FILE *facila = fopen("dificil.txt", "r");
 
     for (int i = 0; i < qtd; ++i) {
         fscanf(facila, "%[^\n]%s\n\n%s\n%s\n%s\n%s\n%s\n%d\n",pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, &pergunta1[i].ponto);
