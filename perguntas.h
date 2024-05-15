@@ -7,12 +7,12 @@
 
 typedef struct Pergunta{
 
-    char questao[100];
+    char questao[150];
     char tipo[20];
-    char respostaA[20];
-    char respostaB[20];
-    char respostaC[20];
-    char respostaD[20];
+    char respostaA[30];
+    char respostaB[30];
+    char respostaC[30];
+    char respostaD[30];
     char respostaCerta[1];
     int ponto;
 
