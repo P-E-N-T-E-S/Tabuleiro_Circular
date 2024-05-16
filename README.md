@@ -47,7 +47,7 @@ Este é um jogo de tabuleiro em C baseado em uma lista circular de casas especia
 1. **Pré-requisitos:** Certifique-se de ter um compilador C instalado em seu sistema.
 2. **Clone:** Clone este repositório em seu ambiente local.
    ```bash
-   git clone https://github.com/P-E
+   git clone https://github.com/P-E-N-T-E-S/TrivCCyclic.git
 
 -N-T-E-S/TrivCCyclic.git
 3. Compilação: Compile o código fonte.
