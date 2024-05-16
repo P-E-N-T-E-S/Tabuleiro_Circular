@@ -25,6 +25,7 @@ int main(void) {
 
     int escolha;
     while(1){
+        system("clear");
         printf("Bem vindo ao TABULEIRO CIRCULAR\n");
         printf("Escolha uma das opções:\n");
         printf("1) Jogar uma partida\n");
@@ -42,6 +43,7 @@ int main(void) {
             cadastrarJogadores(jogadores, head, qtdjogadores);
             printf("Quantos rounds vão ser jogados?\nCada round corresponde a um turno de cada jogador\n");
             scanf("%d", &rounds);
+            system("clear");
             //execucao do jogo
             printf("Agora vamos ver a ordem dos jogadores pelo dado\n");
             scanf("%c", &enter);
@@ -52,6 +54,7 @@ int main(void) {
                 jogadores[i].dadoposicao = resultado;
                 printf("O resultado do seu dado foi: %d\n", resultado);
             }
+            system("clear");
 
             iniciativaJogadores(jogadores, qtdjogadores);
 
@@ -62,6 +65,7 @@ int main(void) {
                 for(int j=0; j<qtdjogadores; j++){
                     printf("Vez do jogador: %s\n", jogadores[j].nome);
                     esperar();
+                    system("clear");
                     printf("Pressione Enter para rodar seu dado\n");
                     scanf("%c", &enter);
                     resultado = D6();
@@ -69,6 +73,7 @@ int main(void) {
                     printf("Andando %d passos...\n", resultado);
                     avancar(&jogadores[j], resultado);
                 }
+                system("clear");
             }
             finalizarJogo(jogadores, rounds, qtdjogadores);
             break;

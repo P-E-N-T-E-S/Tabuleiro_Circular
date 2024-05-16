@@ -117,6 +117,7 @@ void pergunta(Jogador *jogador, Casa *casa){
     printf("voce deseja responder a pergunta?[y/n]\n");
     scanf("%c", &aceitar);
     scanf("%c", &espera);
+    system("clear");
     if(aceitar == 'y'){
         printf("%s\n%s\n%s\n%s\n%s\n", pergunta->questao, pergunta->respostaA, pergunta->respostaB, pergunta->respostaC, pergunta->respostaD);
         printf("Sua resposta: ");
@@ -126,11 +127,13 @@ void pergunta(Jogador *jogador, Casa *casa){
             printf("\nVoce ganhou %d pontos!\n", pergunta->ponto);
             jogador->pontuacao += pergunta->ponto;
             esperar();
+            system("clear");
         }else{
             printf(ANSI_COLOR_RED "Resposta errada!\n" ANSI_COLOR_RESET);
             printf("\nVoce perdeu %d pontos!\n", pergunta->ponto);
             jogador->pontuacao -= pergunta->ponto;
             esperar();
+            system("clear");
         }
     }
 
@@ -148,6 +151,7 @@ void pousar(Jogador *jogador){
         if(jogador->posicao->ida == 1){
             printf(ANSI_COLOR_GREEN "Voce caiu em uma casa de avanco, e vai avancar %d passos!\n" ANSI_COLOR_RESET, jogador->posicao->acao);
             printf("Andando %d passos...\n", jogador->posicao->acao);
+            system("clear");
             avancar(jogador, jogador->posicao->acao);
         }else{
             printf(ANSI_COLOR_RED "Voce caiu em uma casa de regresso, e vai voltar %d passos!\n" ANSI_COLOR_RESET, jogador->posicao->acao);

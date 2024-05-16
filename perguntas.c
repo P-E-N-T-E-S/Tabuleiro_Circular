@@ -15,7 +15,7 @@ int qtdPerguntas(FILE *dados);
 
 Pergunta *perguntasInitF(Pergunta *pergunta1, int qtd){
     pergunta1 = (Pergunta *)malloc(qtd * sizeof(Pergunta));
-    FILE *facila = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/facil.txt", "r");
+    FILE *facila = fopen("facil.txt", "r");
 
     for (int i = 0; i < qtd; ++i) {
         fscanf(facila, "%[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %d\n",pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, &pergunta1[i].ponto);
