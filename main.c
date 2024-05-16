@@ -10,16 +10,16 @@ int main(void) {
     Pergunta *facil = NULL, *medio = NULL, *dificil = NULL;
     int qtdfacil = 0, qtdmedia = 0, qtddificil = 0;
     char dump;
-    FILE *facilarq = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/facil.txt", "r");
-    FILE *mediaarq = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/medio.txt", "r");
-    FILE *dificilarq = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/dificil.txt", "r");
+    FILE *facilarq = fopen("facil.txt", "r");
+    FILE *mediaarq = fopen("medio.txt", "r");
+    FILE *dificilarq = fopen("dificil.txt", "r");
     qtdfacil = qtdPerguntas(facilarq);
     qtdmedia = qtdPerguntas(mediaarq);
     qtddificil = qtdPerguntas(dificilarq);
 
     facil = perguntasInitF(facil, qtdfacil);
-    medio = perguntasInitM(medio, qtdfacil);
-    dificil = perguntasInitD(dificil, qtdfacil);
+    medio = perguntasInitM(medio, qtdmedia);
+    dificil = perguntasInitD(dificil, qtddificil);
 
     inicializarTabuleiro(&head, &tail, facil, medio, dificil);
 
