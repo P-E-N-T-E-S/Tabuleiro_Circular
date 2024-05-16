@@ -1,0 +1,6 @@
+1. Cada Jogador joga apenas na sua vez, ele deve jogar um dado para avancar no tabuleiro e ao parar em uma casa deve fazer a acao dela
+2. Caso o jogador acerte uma pergunta ele ganha uma pontuacao: 1 para facil, 2 para media, 3 para dificil
+3. Caso o jogador erre a pergunta, ele perde a pontuacao que iria ganhar
+4. Os jogadores nao devem ter o mesmo nome
+5. Os jogadores não podem responder as perguntas de outros
+6. Os jogadores podem escolher ou não, responder as perguntas
