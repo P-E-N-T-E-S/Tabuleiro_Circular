@@ -104,7 +104,7 @@ void lerVencedor(){
 
 void regras(){
     char regra[100];
-    FILE *arquivo = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/regras.txt", "r");
+    FILE *arquivo = fopen("regras.txt", "r");
     while (fgets(regra, sizeof(regra), arquivo)) {
         printf("%s", regra); // Process the line as needed
     }
