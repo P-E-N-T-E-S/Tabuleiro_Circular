@@ -7,20 +7,20 @@
 
 <p align="center">
   <img
-    src="https://img.shields.io/github/repo-size/P-E-N-T-E-S/Tabuleiro_Circular?style=flat"
+    src="https://img.shields.io/github/repo-size/P-E-N-T-E-S/TrivCCyclic?style=flat"
     alt="Repository Size"
   />
   <img
-    src="https://img.shields.io/github/languages/count/P-E-N-T-E-S/Tabuleiro_Circular?style=flat&logo=python"
+    src="https://img.shields.io/github/languages/count/P-E-N-T-E-S/TrivCCyclic?style=flat&logo=python"
     alt="Language Count"
   />
   <img
-    src="https://img.shields.io/github/commit-activity/t/P-E-N-T-E-S/Tabuleiro_Circular?style=flat&logo=github"
+    src="https://img.shields.io/github/commit-activity/t/P-E-N-T-E-S/TrivCCyclic?style=flat&logo=github"
     alt="Commit Activity"
   />
   <a href="LICENSE.md"
     ><img
-      src="https://img.shields.io/github/license/P-E-N-T-E-S/Tabuleiro_Circular"
+      src="https://img.shields.io/github/license/P-E-N-T-E-S/TrivCCyclic"
       alt="License"
   /></a>
 </p>
@@ -46,7 +46,7 @@ Este é um jogo de tabuleiro em C baseado em uma lista circular de casas especia
 1. **Pré-requisitos:** Certifique-se de ter um compilador C instalado em seu sistema.
 2. **Clone:** Clone este repositório em seu ambiente local.
    ```bash
-   git clone https://github.com/seu-usuario/jogo-tabuleiro-c
+   git clone https://github.com/P-E-N-T-E-S/TrivCCyclic.git
 3. Compilação: Compile o código fonte.
 4.      gcc main.c perguntas.c ranking.c tabuleiro.c -o game
 5. Execução: Execute o jogo compilado.
