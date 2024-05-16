@@ -1,0 +1,8 @@
+Você está numa cidade e a cada 100 passos que você anda, começa a andar pela metade. Quando sairá da cidade?
+Logica
+A) Nunca sairá da cidade
+B) Após um número infinito de passos
+C) Depende da velocidade com que você anda
+D) Após 200 passos
+A
+3

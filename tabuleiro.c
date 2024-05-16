@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <unistd.h>
 
 #define TAMANHOTABULEIRO 30
 #define ANSI_COLOR_RED     	"\x1b[31m" //cores em ANSI utilizadas
@@ -97,7 +98,7 @@ void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta facil[], Pergunta m
 
 void pergunta(Jogador *jogador, Casa *casa){
     Pergunta *pergunta = casa->pergunta;
-    char aceitar, resposta, espera;
+    char aceitar, resposta, espera, dump;
     switch (pergunta->ponto) {
         case 1:
             printf("voce caiu em uma casa com uma pergunta facil\n");
@@ -126,13 +127,15 @@ void pergunta(Jogador *jogador, Casa *casa){
             printf(ANSI_COLOR_GREEN "Resposta correta!\n" ANSI_COLOR_RESET);
             printf("\nVoce ganhou %d pontos!\n", pergunta->ponto);
             jogador->pontuacao += pergunta->ponto;
-            esperar();
+            sleep(2);
+            scanf("%c", &dump);
             system("clear");
         }else{
             printf(ANSI_COLOR_RED "Resposta errada!\n" ANSI_COLOR_RESET);
             printf("\nVoce perdeu %d pontos!\n", pergunta->ponto);
             jogador->pontuacao -= pergunta->ponto;
-            esperar();
+            sleep(2);
+            scanf("%c", &dump);
             system("clear");
         }
     }
@@ -141,7 +144,11 @@ void pergunta(Jogador *jogador, Casa *casa){
 
 int D6(){
     srand((unsigned) time(NULL));
-    return (rand() % 6 + 1);
+    int resultado = (rand() % 6 + 1);
+    if(resultado == 5){
+        resultado = 6;
+    }
+    return resultado;
 }
 
 void pousar(Jogador *jogador){
@@ -151,11 +158,14 @@ void pousar(Jogador *jogador){
         if(jogador->posicao->ida == 1){
             printf(ANSI_COLOR_GREEN "Voce caiu em uma casa de avanco, e vai avancar %d passos!\n" ANSI_COLOR_RESET, jogador->posicao->acao);
             printf("Andando %d passos...\n", jogador->posicao->acao);
+            sleep(2);
             system("clear");
             avancar(jogador, jogador->posicao->acao);
         }else{
             printf(ANSI_COLOR_RED "Voce caiu em uma casa de regresso, e vai voltar %d passos!\n" ANSI_COLOR_RESET, jogador->posicao->acao);
             printf("Voltando %d passos...\n", jogador->posicao->acao);
+            sleep(2);
+            system("clear");
             regredir(jogador, jogador->posicao->acao);
         }
     }else{
@@ -167,7 +177,7 @@ void pousar(Jogador *jogador){
 
 void esperar(){
     char enter;
-    printf("Pressione qualquer tecla para continuar...");
+    printf("Pressione qualquer tecla para continuar...\n");
     scanf("%c", &enter);
 }
 

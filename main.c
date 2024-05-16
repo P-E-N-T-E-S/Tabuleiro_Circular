@@ -54,6 +54,7 @@ int main(void) {
                 jogadores[i].dadoposicao = resultado;
                 printf("O resultado do seu dado foi: %d\n", resultado);
             }
+            esperar();
             system("clear");
 
             iniciativaJogadores(jogadores, qtdjogadores);
@@ -64,8 +65,6 @@ int main(void) {
             for(int i=0; i<rounds; i++){
                 for(int j=0; j<qtdjogadores; j++){
                     printf("Vez do jogador: %s - %d pontos\n", jogadores[j].nome, jogadores[j].pontuacao);
-                    esperar();
-                    system("clear");
                     printf("Pressione Enter para rodar seu dado\n");
                     scanf("%c", &enter);
                     resultado = D6();
