@@ -1,8 +1,120 @@
-Você está numa cidade e a cada 100 passos que você anda, começa a andar pela metade. Quando sairá da cidade?
+Voce esta numa cidade e a cada 100 passos que voce anda, começa a andar pela metade. Quando saira da cidade?
 Logica
-A) Nunca sairá da cidade
+A) Nunca saira da cidade
 B) Após um número infinito de passos
 C) Depende da velocidade com que você anda
 D) Após 200 passos
 A
+3
+Qual evento historico marcou o fim da Idade Media na Europa?
+Historia
+A) Descobrimento da America
+B) Revolução Industrial
+C) Queda do Império Romano
+D) Tomada de Constantinopla pelos otomanos
+D
+3
+What is the past participle of the verb "to eat"?
+Ingles
+A) eat
+B) eating
+C) ate
+D) eaten
+D
+3
+Qual e a unidade de medida de temperatura no sistema internacional?
+Fisica
+A) Kelvin
+B) Celsius
+C) Fahrenheit
+D) Joule
+A
+3
+Quem foi o primeiro presidente do Brasil após o período militar?
+Historia
+A) Tancredo Neves
+B) Fernando Collor
+C) José Sarney
+D) Itamar Franco
+C
+3
+Qual e o nome do rio que atravessa a cidade de Paris?
+Geografia
+A) Sena
+B) Tamisa
+C) Danubio
+D) Reno
+A
+3
+Em que ano ocorreu a Proclamacao da Republica no Brasil?
+Historia
+A) 1889
+B) 1822
+C) 1900
+D) 1964
+A
+3
+"Se todos os passaros voam e nenhum peixe voa, entao..."
+Logica
+A) Todos os peixes voam
+B) Nenhum pássaro nada
+C) Alguns pássaros não voam
+D) Todos os pássaros nadam
+C
+3
+Quem pintou a obra "Guernica"?
+Artes
+A) Pablo Picasso
+B) Vincent van Gogh
+C) Salvador Dali
+D) Claude Monet
+A
+3
+Qual e o resultado da expressao matematica: 4² - 3 x 2 + 5?
+Assunto: Matematica
+A) 14
+B) 12
+C) 9
+D) 7
+C
+3
+Qual e a unidade de medida de distancia no sistema internacional?
+Assunto: Fisica
+A) Quilometro
+B) Metro
+C) Litro
+D) Ampere
+B
+3
+Qual e o ponto mais alto do Brasil?
+Geografia
+A) Pico da Neblina
+B) Pico Parana
+C) Pico das Agulhas Negras
+D) Pico da Bandeira
+A
+3
+Qual é o nome dado a estrutura celular responsavel pela producao de proteinas?
+Biologia
+A) Lisossomo
+B) Ribossomo
+C) Mitocondria
+D) Reticulo endoplasmatico
+B
+3
+Quem foi o lider do movimento pela independencia da India?
+Historia
+A) Mahatma Gandhi
+B) Jawaharlal Nehru
+C) Indira Gandhi
+D) Subhas Chandra Bose
+A
+3
+What is the plural of: mouse?
+Ingles
+A) mouses
+B) mouse
+C) mice
+D) mices
+C
 3
