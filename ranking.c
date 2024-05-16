@@ -7,8 +7,6 @@
 #include "tabuleiro.h"
 #include "unistd.h"
 
-
-//Jogador *jogadores = (Jogador*)malloc(tamanho * sizeof(Jogador));
 void regras();
 int existencia(const char *fname);
 void troca(Jogador *a,Jogador *b);
@@ -23,6 +21,10 @@ void troca(Jogador *a,Jogador *b){
 
 
 void classificarJogadores(Jogador *jogadores, int tamanho) {
+    /*
+     * Função que usa o selection sort para ordenar os jogadores de acordo com a pontuacao deles
+     * com o criterio de desempate sendo a ordem alfabética
+     */
     for (int i = 0; i < tamanho - 1; i++) {
         int max_idx = i;
         for (int j = i + 1; j < tamanho; j++) {
@@ -41,13 +43,19 @@ void classificarJogadores(Jogador *jogadores, int tamanho) {
 }
 
 void imprimirJogadores(Jogador *jogadores, int tamanho) {
+    /*
+     * Função que imprime a lista dos jogadores, mostrando seu nome, pontuacao e casa.
+     */
     printf("Jogadores:\n");
     for (int i = 0; i < tamanho; i++) {
-        printf("Nome: %s | Pontuacao: %d\n", jogadores[i].nome, jogadores[i].pontuacao);
+        printf("Nome: %s | Pontuacao: %d | Casa: %d\n", jogadores[i].nome, jogadores[i].pontuacao, jogadores[i].posicao->posicao);
     }
 }
 
 void cadastrarJogadores(Jogador *jogadores, Casa *head, int tamanho) {
+    /*
+     * Função que recebe inputs dos usuários e cria as structs dos jogadores, inicializando eles na primeira casa
+     */
     for (int i = 0; i < tamanho; i++) {
         printf("Cadastro do Jogador %d:\n", i + 1);
 
@@ -62,7 +70,10 @@ void cadastrarJogadores(Jogador *jogadores, Casa *head, int tamanho) {
     }
 }
 
-void iniciativaJogadores(Jogador *jogadores, int tamanho) { //selection sort
+void iniciativaJogadores(Jogador *jogadores, int tamanho) {
+    /*
+     * Função que usa o selection sort para ordenar os jogadores de acordo com a usa iniciativa, tirado pelo dado D6
+     */
     for (int i = 0; i < tamanho - 1; i++) {
         int max_idx = i;
         for (int j = i + 1; j < tamanho; j++) {
@@ -82,7 +93,9 @@ void iniciativaJogadores(Jogador *jogadores, int tamanho) { //selection sort
 }
 
 void escVencedor(char nome[30]){
-    char ranking[100];
+    /*
+     * Função que registra um jogador no arquivo de ranking
+     */
     if (!existencia("ranking")){
         FILE *ranking = fopen("ranking.txt", "w");
         fprintf(ranking, "%s", nome);
@@ -94,8 +107,12 @@ void escVencedor(char nome[30]){
 }
 
 void lerVencedor(){
+    /*
+     * Função para ler o arquivo de ranking e mostrar na tela
+     */
     char rankingc[100];
     FILE *ranking = fopen("ranking.txt", "r");
+    printf("");
     while (fgets(rankingc, sizeof(rankingc), ranking)) {
         printf("%s", rankingc); // Process the line as needed
     }
@@ -103,8 +120,12 @@ void lerVencedor(){
 }
 
 void regras(){
+    /*
+    * Função para ler o arquivo de regras e mostrar na tela
+    */
     char regra[100];
     FILE *arquivo = fopen("regras.txt", "r");
+    printf("");
     while (fgets(regra, sizeof(regra), arquivo)) {
         printf("%s", regra); // Process the line as needed
     }
@@ -112,6 +133,9 @@ void regras(){
 }
 
 int existencia(const char *fname){
+    /*
+     * Função para verificar a exitencia de um arquivo
+     */
     if(access(fname, F_OK)){
         return 0;
     }else{

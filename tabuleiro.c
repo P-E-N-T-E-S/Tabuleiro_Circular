@@ -31,6 +31,10 @@ int D6();
 void esperar();
 
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida){
+    /*
+     * Função para incluir novos nós na lista circular duplamente encadeada, ela pode receber alguns desses parâmetros como nulo ou zero,
+     * de acordo com o tipo da casa
+     */
     Casa *nova = (Casa *)malloc(sizeof(Casa));
     nova->posicao = posicao;
     nova->tipo = tipo;
@@ -52,6 +56,9 @@ void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo
 }
 
 void avancar(Jogador *jogador, int posicoes){
+    /*
+     *Função para avancar um jogador em um numero de casas passados como parâmetro, ele anda no sentido horário da lista circular
+     */
     for(int i=0; i<posicoes; i++){
         jogador->posicao = jogador->posicao->next;
     }
@@ -59,6 +66,9 @@ void avancar(Jogador *jogador, int posicoes){
 }
 
 void regredir(Jogador *jogador, int posicoes){
+    /*
+    *Função para voltar um jogador em um numero de casas passados como parâmetro, ele anda no sentido anti-horário da lista circular
+    */
     for(int i=0; i<posicoes; i++){
         jogador->posicao = jogador->posicao->prev;
     }
@@ -66,28 +76,32 @@ void regredir(Jogador *jogador, int posicoes){
 }
 
 void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta facil[], Pergunta media[], Pergunta dificil[]){
+    /*
+     * Função para criar o tabuleiro circular, ele ja tem definido qual cada tipo de casa nos arrays e nos ifs, ele chama varias vezes a função incluir
+     * passando os parametros de acordo com cada tipo de casa
+     */
     int j=0, k=0, f=0,m=0,d=0;
     int idaarray[] = {1, 1, 0, 0, 1, 1};
     int acaoarray[] = {3, 2, 2, 3, 1, 2};
     int pergunta[] = {3,1,2,3,1,2,3,2,2,3,2,1,1,3,3,2,1,2,3,2,1,1};
     for(int i=0; i < TAMANHOTABULEIRO; i++){
         if(i == 0){
-            incluir(head, tail, NULL, i, 2, 3, 0);
+            incluir(head, tail, NULL, i+1, 2, 3, 0);
         }else if(i == 1 || i == 8 || i == 12 || i == 19 || i == 24 || i == 26){
-            incluir(head, tail, NULL, i, 1, acaoarray[j], idaarray[j]);
+            incluir(head, tail, NULL, i+1, 1, acaoarray[j], idaarray[j]);
             j++;
         }else{
             switch (pergunta[k]) {
                 case 1:
-                    incluir(head, tail, &facil[f], i, 0, 1, 0);
+                    incluir(head, tail, &facil[f], i+1, 0, 1, 0);
                     f++;
                     break;
                 case 2:
-                    incluir(head, tail, &media[m], i, 0, 1, 0);
+                    incluir(head, tail, &media[m], i+1, 0, 1, 0);
                     m++;
                     break;
                 case 3:
-                    incluir(head, tail, &dificil[m], i, 0, 1, 0);
+                    incluir(head, tail, &dificil[m], i+1, 0, 1, 0);
                     d++;
                     break;
             }
@@ -97,6 +111,10 @@ void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta facil[], Pergunta m
 }
 
 void pergunta(Jogador *jogador, Casa *casa){
+    /*
+     * Função que faz ao jogador a pergunta referente a casa em que ele está, verifica qual o nivel da pergunta e associa a pontuacao correta ao jogador
+     * tambem permite que ele possa escolher nao responder a pergunta
+     */
     Pergunta *pergunta = casa->pergunta;
     char aceitar, resposta, espera, dump;
     switch (pergunta->ponto) {
@@ -132,6 +150,7 @@ void pergunta(Jogador *jogador, Casa *casa){
             system("clear");
         }else{
             printf(ANSI_COLOR_RED "Resposta errada!\n" ANSI_COLOR_RESET);
+            printf("A resposta correta e: %c", pergunta->respostaCerta[0]);
             printf("\nVoce perdeu %d pontos!\n", pergunta->ponto);
             jogador->pontuacao -= pergunta->ponto;
             sleep(2);
@@ -143,15 +162,18 @@ void pergunta(Jogador *jogador, Casa *casa){
 }
 
 int D6(){
+    /*
+     * Função que imita um dado de 6 lados usando a função random
+     */
     srand((unsigned) time(NULL));
     int resultado = (rand() % 6 + 1);
-    if(resultado == 5){
-        resultado = 6;
-    }
     return resultado;
 }
 
 void pousar(Jogador *jogador){
+    /*
+     * Função para fazer com que o jogador execute a ação das casas ao aterrisar nelas, essa funcao anuncia a ação e executa a sua devida função
+     */
     if(jogador->posicao->tipo == 0){
         pergunta(jogador, jogador->posicao);
     }else if(jogador->posicao->tipo == 1){
@@ -176,12 +198,18 @@ void pousar(Jogador *jogador){
 }
 
 void esperar(){
+    /*
+     * Função para esperar uma tecla do usuário para seguir o fluxo
+     */
     char enter;
     printf("Pressione qualquer tecla para continuar...\n");
     scanf("%c", &enter);
 }
 
-void finalizarJogo(Jogador *jogadores, int rounds, int qtdjogadores){
+void finalizarJogo(Jogador *jogadores, int qtdjogadores){
+    /*
+     * Função executada no fim dos rounds definidos pelos jogadores ela mostra o ranking dos jogadores e salva o vencedor em um arquivo
+     */
     classificarJogadores(jogadores, qtdjogadores);
     printf(ANSI_COLOR_GREEN "\n------Fim do jogo------\n" ANSI_COLOR_RESET);
     printf("O grande vencedor e...\n");

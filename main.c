@@ -73,16 +73,21 @@ int main(void) {
                     avancar(&jogadores[j], resultado);
                 }
             }
-            finalizarJogo(jogadores, rounds, qtdjogadores);
+            finalizarJogo(jogadores, qtdjogadores);
             break;
         }
         if (escolha == 2){
             regras();
             scanf("%c", &dump);
+            esperar();
             printf("\n");
         }
         if (escolha == 3){
             lerVencedor();
+            printf("\n");
+            scanf("%c", &dump);
+            esperar();
+            printf("\n");
         }
         if (escolha == 4){
             exit(0);

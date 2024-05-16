@@ -30,7 +30,7 @@ void regredir(Jogador *jogador, int posicoes);
 void incluir(Casa **head, Casa **tail, Pergunta *pergunta, int posicao, int tipo, int acao, int ida);
 void avancar(Jogador *jogador, int posicoes);
 int D6();
-void finalizarJogo(Jogador *jogadores, int rounds, int qtdjogadores);
+void finalizarJogo(Jogador *jogadores, int qtdjogadores);
 void inicializarTabuleiro(Casa **head, Casa **tail, Pergunta facil[], Pergunta media[], Pergunta dificil[]);
 void esperar();
 
