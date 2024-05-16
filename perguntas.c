@@ -30,7 +30,7 @@ Pergunta *perguntasInitF(Pergunta *pergunta1, int qtd){
 
 Pergunta *perguntasInitM(Pergunta *pergunta1, int qtd){
     pergunta1 = (Pergunta *)malloc(qtd * sizeof(Pergunta));
-    FILE *facila = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/medio.txt", "r");
+    FILE *facila = fopen("medio.txt", "r");
 
     for (int i = 0; i < qtd; ++i) {
         fscanf(facila, "%[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %d\n",pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, &pergunta1[i].ponto);
@@ -45,7 +45,7 @@ Pergunta *perguntasInitM(Pergunta *pergunta1, int qtd){
 
 Pergunta *perguntasInitD(Pergunta *pergunta1, int qtd){
     pergunta1 = (Pergunta *)malloc(qtd * sizeof(Pergunta));
-    FILE *facila = fopen("/Users/evaldocunhafilho/CLionProjects/Tabuleiro/dificil.txt", "r");
+    FILE *facila = fopen("dificil.txt", "r");
 
     for (int i = 0; i < qtd; ++i) {
         fscanf(facila, "%[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %[^\n] %d\n",pergunta1[i].questao,pergunta1[i].tipo, pergunta1[i].respostaA, pergunta1[i].respostaB, pergunta1[i].respostaC,pergunta1[i].respostaD, pergunta1[i].respostaCerta, &pergunta1[i].ponto);

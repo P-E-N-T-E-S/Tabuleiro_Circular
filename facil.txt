@@ -22,219 +22,139 @@ C) 1918
 D) 1920
 A
 1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
-B
-1
-Qual e o maior oceano do mundo?
-Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
+Quem foi o primeiro presidente dos Estados Unidos?
+Historia
+A) Abraham Lincoln
+B) Thomas Jefferson
+C) George Washington
+D) John F. Kennedy
 C
 1
-Em que ano a Primeira Guerra Mundial começou?
+Qual foi a capital do Imperio Romano?
 Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
+A) Atenas
+B) Constantinopla
+C) Roma
+D) Alexandria
+C
+1
+Qual e o verbo auxiliar usado para formar a negativa e a interrogativa no Simple Present?
+Ingles
+A) Have
+B) Do
+C) Will
+D) Can
+B
+1
+Qual e a preposição correta para indicar movimento em direcao a um lugar?
+Ingles
+A) In
+B) At
+C) On
+D) To
+D
+1
+Pergunta: Qual é o símbolo químico do hidrogênio?
+Quimica
+A) He
+B) Hg
+C) H
+D) Au
+C
+1
+Qual e o estado físico do oxigenio a temperatura ambiente?
+Quimica
+A) Solido
+B) Liquido
+C) Gasoso
+D) Plasma
+C
+1
+Quem pintou a famosa obra "Mona Lisa"?
+Artes
+A) Vincent van Gogh
+B) Leonardo da Vinci
+C) Pablo Picasso
+D) Michelangelo
+B
+1
+Qual e a função sintática da palavra "amigo" na frase "Joao eh meu amigo"?
+Portugues
+A) Sujeito
+B) Predicativo do sujeito
+C) Objeto direto
+D) Adjunto adnominal
+D
+1
+Qual e a unidade básica da vida?
+Biologia
+A) Celula
+B) DNA
+C) Tecido
+D) Orgao
 A
 1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
-B
-1
-Qual e o maior oceano do mundo?
+Qual e a capital da Austrália?
 Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
+A) Sydney
+B) Melbourne
+C) Canberra
+D) Brisbane
 C
 1
-Em que ano a Primeira Guerra Mundial começou?
-Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
+Quem foi o autor da teoria da relatividade?
+Fisica
+A) Isaac Newton
+B) Albert Einstein
+C) Stephen Hawking
+D) Galileu Galilei
+B
+1
+Qual e o pais com a maior area territorial do mundo?
+Geografia
+A) China
+B) Rússia
+C) Estados Unidos
+D) Brasil
+B
+1
+Qual e o rio mais longo do mundo?
+Geografia
+A) Rio Amazonas
+B) Rio Nilo
+C) Rio Mississipi
+D) Rio Yangtze
 A
 1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
-B
-1
-Qual e o maior oceano do mundo?
+Qual e a capital do Canada?
 Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
+A) Toronto
+B) Montreal
+C) Ottawa
+D) Vancouver
 C
 1
-Em que ano a Primeira Guerra Mundial começou?
-Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
+Quem escreveu "Dom Quixote", considerado um dos maiores romances da literatura mundial?
+Literatura
+A) Miguel de Cervantes
+B) William Shakespeare
+C) Charles Dickens
+D) Jane Austen
 A
 1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
+Qual e o processo pelo qual as plantas produzem sua propria comida?
+Biologia
+A) Respiração celular
+B) Fotossíntese
+C) Transpiração
+D) Germinação
 B
 1
-Qual e o maior oceano do mundo?
-Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
-C
-1
-Em que ano a Primeira Guerra Mundial começou?
-Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
-A
-1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
-B
-1
-Qual e o maior oceano do mundo?
-Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
-C
-1
-Em que ano a Primeira Guerra Mundial começou?
-Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
-A
-1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
-B
-1
-Qual e o maior oceano do mundo?
-Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
-C
-1
-Em que ano a Primeira Guerra Mundial começou?
-Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
-A
-1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
-B
-1
-Qual e o maior oceano do mundo?
-Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
-C
-1
-Em que ano a Primeira Guerra Mundial começou?
-Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
-A
-1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
-B
-1
-Qual e o maior oceano do mundo?
-Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
-C
-1
-Em que ano a Primeira Guerra Mundial começou?
-Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
-A
-1
-Se A = 2, B = 4, C = 6, entao D = ?
-Logica
-A) 7
-B) 8
-C) 9
-D) 10
-B
-1
-Qual e o maior oceano do mundo?
-Geografia
-A) Oceano Atlântico
-B) Oceano Índico
-C) Oceano Pacífico
-D) Oceano Antártico
-C
-1
-Em que ano a Primeira Guerra Mundial começou?
-Historia
-A) 1914
-B) 1916
-C) 1918
-D) 1920
+Qual e o maior osso do corpo humano?
+Biologia
+A) Femur
+B) Tibia
+C) Umero
+D) Cranio
 A
 1
