@@ -63,7 +63,7 @@ int main(void) {
 
             for(int i=0; i<rounds; i++){
                 for(int j=0; j<qtdjogadores; j++){
-                    printf("Vez do jogador: %s\n", jogadores[j].nome);
+                    printf("Vez do jogador: %s - %d pontos\n", jogadores[j].nome, jogadores[j].pontuacao);
                     esperar();
                     system("clear");
                     printf("Pressione Enter para rodar seu dado\n");
@@ -73,7 +73,6 @@ int main(void) {
                     printf("Andando %d passos...\n", resultado);
                     avancar(&jogadores[j], resultado);
                 }
-                system("clear");
             }
             finalizarJogo(jogadores, rounds, qtdjogadores);
             break;
